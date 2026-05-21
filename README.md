@@ -100,14 +100,17 @@ func main(){
 - cd into project directory where the `go.mod` file is present
 - compile your program
 
-      `go build <file-location>`
-      ```bash
-      go build package-1/main.go
-      ```
-      This produces a binary file called main which we can run to get our output.
-      ```bash
-      ./main.exe
-      ```
+`go build <file-location>`
+
+```bash
+go build package-1/main.go
+```
+
+This produces a binary file called main which we crun to get our output.
+
+```bash
+./main.exe
+```
 
 - we can directly do it using a single command i.e `go run <file-location>`
 
