@@ -52,9 +52,9 @@
 
 A package is just folder that contains collection of Go files.
 
-    - `file_1.go`
-    - `file_2.go`
-    - `file_3.go`
+    - file_1.go
+    - file_2.go
+    - file_3.go
 
 A collection of these packages is called a module. When we're a intialising a project we're basically initialising a new module.
 
