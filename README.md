@@ -60,7 +60,7 @@ A collection of these packages is called a module. When we're a intialising a pr
 
 To start a new project/module cd into your project directory and then use `go mod init <name-of-your-module> or <github-repo-link>`
 
-It will create a `go.mod` file containing the name of the module and the Go version we're using. If we start install other external modules, these will be present here along with the version number.
+It will create a `go.mod` file containing the name of the module and the Go version we're using. If we start installing other external modules, these will be present here along with the version number.
 
 Remember that every Go file is a part of a package. We identify the package to which it belongs to by typing the `package` at the top of the file and then the name of the package. For example:
 
@@ -106,7 +106,7 @@ func main(){
 go build package-1/main.go
 ```
 
-This produces a binary file called main which we crun to get our output.
+This produces a binary file called ``main.exe` which we can run to get the output.
 
 ```bash
 ./main.exe
