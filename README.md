@@ -117,3 +117,143 @@ This produces a binary file called ``main.exe` which we can run to get the outpu
 ```bash
 go run package-1/main.go
 ```
+
+## Variables, constants and Basic Data Types
+
+### Integers
+
+To declare a variable in Go use the `var` keyword followed by the variable name and the type.
+
+```go
+var intNum int
+```
+
+Here the `intNum` is typed to `integer` data type. Similar to imports in Go, variables that have been declared have to be used so that there are no unused variables hanging around in the code.
+
+In addition to the `int` type there are
+
+- int8
+- int16
+- int32
+- int64
+
+These represent the memory we use to store our number. 64 can store 4 times larger numbers than 32 but take up more memory. The largest positive number that can be stored in int16 is `32767` — anything larger than this cannot be stored and will throw `overflow` error. However the compiler won't throw any runtime errors, the program will still run but produce weird errors.
+
+```go
+func main() {
+var intNum int16 = 32767
+intNum = intNum+1
+fmt.Println(intNum)
+}
+```
+
+NOTE: `int` will default to 32 bits or 64 bits depending on your system architecture.
+
+In Go we also have access to unsigned ints i.e `unint` with same sizes as ints but only store positive integer so using `unint` we can store +ve integers twice as large in the same amount of memory.
+
+- unint8
+- unint16
+- unint32
+- unint64
+
+int8: `(-128,127)`
+unint8: `(0,255)`
+
+For example if we want to store 256 RGB then unsigned 8 bit integer is the best fit rather than 64 bit integer.
+
+### Float
+
+It is used to store decimal numbers. `float64` can store the largest and most precise decimal numbers but they take more memory.
+
+Go doesn't have just a `float` type, you have to specify the number of bits i.e either `float32` or `float64`
+
+We can perform arithmetic operations in Go like `+,-,/ and *` but
+
+- you can't perform operations on mixed types, for example adding an `int32` with `float32` or multiply `int64` with `float64` together. If you need to do it, then you would have to type cast on the values to common type and then proceed
+
+```go
+var floatNum32 float32 = 10.1
+var intNum32 int32 = 2
+var result = floatNum32 + float(intNum32)
+```
+
+### Strings
+
+We use a `` `string` `` type to store strings. We can initialise strings with `""` or `` ` ` ``.
+
+```go
+var str1 string = "Hello World"
+var str2 string = `Hello World`
+```
+
+With backticks you format the string directly without having to use escape characters.
+
+```go
+var str1 string = "Hello \nWorld"
+var str2 string = `Hello
+World`
+```
+
+We can concatenate strings by adding them
+
+```go
+var str1 string = "Hello"
+var str2 string = "World"
+var result = str1 + " " + str2
+```
+
+We can get the length of a string using the built in `len` function but this is not the length of the characters, it's the number of bytes. Since Go uses UTF-8 encoding, characters outside the vanilla ASCII character set are stored with more than a single byte. So for example taking length of ASCII character `A` will result in `1` and taking length of ASCII character `γ` will result in `2`.
+
+For getting the Unicode code points in Go, import the built in `unicode/utf8` package and call the `RuneCountInString` function.
+
+Runes are also a data type in Go that represents characters unicode. A `rune` is basically an alias for int32.
+
+```go
+fmt.Println(utf8.RuneCountInString("γ"))
+```
+
+To declare a rune, use the rune type and wrap the value in `''`.
+
+```go
+var char rune = 'a'
+```
+
+### Booleans
+
+Boolean values can be either `true` of `false`
+
+```go
+var myBoolean bool = true
+```
+
+### Variable Declaration
+
+Up until now we had always initialised our variable whenever we declared it but this is not required. We could create an int variable and then not set it. In these cases Go sets default values depending on its type.
+
+Default values for all integers, unsigned integers, floats, decimals and runes is `0`. For strings it is empty string i.e `""` and for booleans it is `false`.
+
+When we create a variable, we can omit the type and set the variable right away. This way the type is inferred. We could even go a step further and drop the `var` keyword and use the shorthand `:=`.
+
+```go
+var myVar = 1
+```
+
+```go
+myVar := "text"
+```
+
+We can initialise multiple variables at once too.
+
+```go
+var1, var2 := 1,2
+```
+
+For simple types omitting the types when declaring the variales is fine but adding the type when it isn't obvious (say for a function) is a good practice and will make your code easier to follow.
+
+### Constants
+
+Once created you cannot change value of a constant. We have to initialise a constant when declared.
+
+```go
+const pi float32 = 3.14
+```
