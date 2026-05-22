@@ -179,7 +179,7 @@ var result = floatNum32 + float(intNum32)
 
 ### Strings
 
-We use a `` `string` `` type to store strings. We can initialise strings with `""` or `` ` ` ``.
+We use a `string` type to store strings. We can initialise strings with `""` or `` ` ` ``.
 
 ```go
 var str1 string = "Hello World"
