@@ -118,7 +118,7 @@ This produces a binary file called ``main.exe` which we can run to get the outpu
 go run package-1/main.go
 ```
 
-## Variables, constants and Basic Data Types
+## Variables, Constants and Basic Data Types
 
 ### Integers
 
