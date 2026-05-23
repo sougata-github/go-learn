@@ -169,7 +169,7 @@ Go doesn't have just a `float` type, you have to specify the number of bits i.e 
 
 We can perform arithmetic operations in Go like `+,-,/ and *` but
 
-- you can't perform operations on mixed types, for example adding an `int32` with `float32` or multiply `int64` with `float64` together. If you need to do it, then you would have to type cast on the values to common type and then proceed
+- you can't perform operations on mixed types, for example adding an `int32` with `float32` or multiply `int64` with `float64` together. If you need to do it, then you would have to type cast the values to common type and then proceed
 
 ```go
 var floatNum32 float32 = 10.1
