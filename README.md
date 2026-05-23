@@ -215,7 +215,7 @@ fmt.Println(utf8.RuneCountInString("γ"))
 To declare a rune, use the rune type and wrap the value in `''`.
 
 ```go
-var char rune = 'a'
+var rune1 rune = 'a'
 ```
 
 ### Booleans
