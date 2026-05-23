@@ -106,7 +106,7 @@ func main(){
 go build package-1/main.go
 ```
 
-This produces a binary file called ``main.exe` which we can run to get the output.
+This produces a binary file called `main.exe` which we can run to get the output.
 
 ```bash
 ./main.exe
@@ -149,15 +149,15 @@ fmt.Println(intNum)
 
 NOTE: `int` will default to 32 bits or 64 bits depending on your system architecture.
 
-In Go we also have access to unsigned ints i.e `unint` with same sizes as ints but only store positive integer so using `unint` we can store +ve integers twice as large in the same amount of memory.
+In Go we also have access to unsigned ints i.e `uint` with same sizes as ints but only store positive integer so using `uint` we can store +ve integers twice as large in the same amount of memory.
 
-- unint8
-- unint16
-- unint32
-- unint64
+- uint8
+- uint16
+- uint32
+- uint64
 
 int8: `(-128,127)`
-unint8: `(0,255)`
+uint8: `(0,255)`
 
 For example if we want to store 256 RGB then unsigned 8 bit integer is the best fit rather than 64 bit integer.
 
