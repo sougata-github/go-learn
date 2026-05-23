@@ -230,7 +230,7 @@ var myBoolean bool = true
 
 Up until now we had always initialised our variable whenever we declared it but this is not required. We could create an int variable and then not set it. In these cases Go sets default values depending on its type.
 
-Default values for all integers, unsigned integers, floats, decimals and runes is `0`. For strings it is empty string i.e `""` and for booleans it is `false`.
+Default values for all integers, unsigned integers, floats and runes is `0`. For strings it is empty string i.e `""` and for booleans it is `false`.
 
 When we create a variable, we can omit the type and set the variable right away. This way the type is inferred. We could even go a step further and drop the `var` keyword and use the shorthand `:=`.
 
