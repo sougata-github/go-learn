@@ -10,7 +10,7 @@
   var myVariable string = "Hello, World!"
   ```
 
-  or set the value of the type right away so it can be inferred right away
+  or set the value of the type so it can be inferred right away
 
   ```go
   var myVariable = "Hello, World!"
