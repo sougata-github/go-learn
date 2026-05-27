@@ -257,3 +257,120 @@ Once created you cannot change value of a constant. We have to initialise a cons
 ```go
 const pi float32 = 3.14
 ```
+
+### Functions & Control Structures
+
+We use `func` keyword followed by the name of the function to declare a function.
+
+The curly braces `{}` defines the logic of the function. The starting curling brace has to be in the first line otherwise there will be an error.
+
+```go
+func myFunc(){
+  fmt.printLn("Hello World")
+}
+```
+
+Call your function in the `main` function to execute it.
+
+```go
+func main(){
+  myFunc()
+}
+```
+
+With functions besides the main function we have the ability to pass in parameters which go between the parantheses. Pass the parameter with its name and type.
+
+```go
+func myFunc(message string){
+fmt.PrintLn(message)
+}
+```
+
+We can define a variable in the main function and pass it to the `myFunc` function as the argument when calling it.
+
+```go
+func main(){
+var printMessage string = "Hello World"
+myFunc(printMessage)
+}
+```
+
+When a function is returning a value to caller we have to specify the return type of the function.
+
+```go
+func main() {
+  var numerator int = 20
+  var denominator int = 5
+  var result int = intDivision(numerator/denominator)
+  fmt.Println(result)
+}
+
+func intDivision(numerator int, denominator int) int {
+  var result int = numerator/denominator
+  return result
+}
+```
+
+When we want to return multiple values from a function, we can specify multiple values as follows.
+
+```go
+func main(){
+  var result, remainder int = intDivision(20,5)
+  fmt.Printf("The result of the integer division is %v with remainder %v", result, remainder)
+}
+
+func intDivision (numerator int, denominator int) (int, int) {
+  var result int = numerator/denominator
+  var remainder int = numerator%denominator
+  return result, remainder
+}
+```
+
+Now suppose we pass zero as the denominator then we will get a `integer divide by zero` error. So a design pattern in Go is that if our function can encounter errors then we should have a return type of error along with the result.
+
+`error` is a built in type in Go.
+
+```go
+var err error
+```
+
+The default value of an error is `nil`
+
+```go
+package main
+import (
+  fmt, errors
+)
+
+func main(){
+
+  var result, remainder, err = intDivision (20,5)
+
+  if err!=nil
+  {
+    fmt.Println(err.Error())
+  } else if remainder == 0{
+    fmt.Printf("The result of the integer division is %v", result)
+  }else{
+  fmt.Printf("The result of the integer division is %v with remainder %v", result, remainder)
+  }
+}
+
+func intDivision(numerator int, denominator int) (int, int, error) {
+
+var err error
+
+if denominator == 0
+{
+  err = errors.New("Cannot Divide by Zero")
+  return 0,0, err
+}
+
+var result int = numerator/denominator
+var remainder int = numerator%denominator
+
+return result, remainder, err
+}
+```
+
+NOTE: You can check equality using `!=` & `==`

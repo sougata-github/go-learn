@@ -1,11 +1,12 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"unicode/utf8"
 )
 
-func main(){
+func main() {
 	//integers
 	var num1 int8 = 127
 	var num2 uint8 = 255
@@ -33,8 +34,8 @@ func main(){
 	var byteLength int = len(str)
 	var runeLength int = utf8.RuneCountInString(str)
 
-	//runes 
-	var rune1 rune = 'a' //prints the unicode code point 
+	//runes
+	var rune1 rune = 'a' //prints the unicode code point
 	var rune2 rune = 'b'
 
 	//booleans
@@ -55,9 +56,9 @@ func main(){
 
 	var float32Default float32
 	var float64Default float64
-	
+
 	var runeDefault rune
-	
+
 	var strDefault string
 
 	var boolDefault bool
@@ -66,16 +67,27 @@ func main(){
 
 	//without type
 	var myVar1 = "text" //type of variable is inferred here
-	
+
 	//without `var` keyword
-	myVar2:=1
-	
+	myVar2 := 1
 
 	//constants
 	const pi float32 = 3.14
 
 	//will throw error
 	// pi = 3.1
+
+	//calling a function
+
+	var divResult, divRemainder, err = intDivision(20, 5)
+
+	if err != nil {
+		fmt.Printf("%s", err.Error())
+	} else if divRemainder == 0 {
+		fmt.Printf("The result of the integer division is %v \n", divResult)
+	} else {
+		fmt.Printf("The result of the integer division is %v with remainder is %v \n", divResult, divRemainder)
+	}
 
 	//print
 	fmt.Println("Hello World!")
@@ -86,7 +98,7 @@ func main(){
 	fmt.Println("Byte Length:", byteLength)
 	fmt.Println("Unicode Code points:", runeLength)
 	fmt.Println("Characters Unicode:", rune1, rune2)
-	fmt.Printf("Characters:%c %c \n", rune1, rune2,)
+	fmt.Printf("Characters:%c %c \n", rune1, rune2)
 	fmt.Println("Boolean:", myBoolean)
 
 	fmt.Println("Integer defaults:", intDefault, int8Default, int16Default, int32Default, int64Default)
@@ -101,3 +113,17 @@ func main(){
 	fmt.Println("Constant:", pi)
 }
 
+func intDivision(numerator int, denominator int) (int, int, error) {
+
+	var err error //default value is nil
+
+	if denominator == 0 {
+		err = errors.New("Cannot Divide by Zero")
+		return 0, 0, err
+	}
+
+	result := numerator / denominator
+	remainder := numerator % denominator
+
+	return result, remainder, err
+}
