@@ -31,7 +31,7 @@ func main(){
 	//lengths of strings
 	var str string = "hello world"
 	var byteLength int = len(str)
-	var charLength int = utf8.RuneCountInString(str)
+	var runeLength int = utf8.RuneCountInString(str)
 
 	//runes 
 	var rune1 rune = 'a' //prints the unicode code point 
@@ -84,7 +84,7 @@ func main(){
 	fmt.Println("Decimals:", num3, num4, num5, num6, result)
 	fmt.Println("Strings:", str1, str2, str3, strResult, str)
 	fmt.Println("Byte Length:", byteLength)
-	fmt.Println("Unicode Code points:", charLength)
+	fmt.Println("Unicode Code points:", runeLength)
 	fmt.Println("Characters Unicode:", rune1, rune2)
 	fmt.Printf("Characters:%c %c \n", rune1, rune2,)
 	fmt.Println("Boolean:", myBoolean)
